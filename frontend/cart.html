@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Your Cart</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+<h1>VintageCar<span>Market</span></h1>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="cars.html">Cars</a>
+<a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+</nav>
+
+</header>
+
+
+<section class="cart-container">
+
+<h2>Your Shopping Cart</h2>
+
+<div id="cart-items"></div>
+
+<h3 id="total">Total: $0</h3>
+
+<div class="cart-buttons">
+
+<button class="checkout-btn" onclick="checkout()">
+Proceed to Checkout
+</button>
+
+<button class="clear-btn" onclick="clearCart()">
+Clear Cart
+</button>
+
+</div>
+
+</section>
+
+
+<script src="script.js"></script>
+
+<script>
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function displayCart(){
+
+const cartContainer = document.getElementById("cart-items");
+
+cartContainer.innerHTML="";
+
+let total=0;
+
+cart.forEach((car,index)=>{
+
+total+=car.price;
+
+cartContainer.innerHTML+=`
+
+<div class="cart-card">
+
+<img src="${car.image}">
+
+<div>
+
+<h3>${car.name}</h3>
+
+<p>${car.brand}</p>
+
+<p>$${car.price}</p>
+
+<button onclick="removeItem(${index})">Remove</button>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+document.getElementById("total").innerText="Total: $"+total;
+
+document.getElementById("cart-count").innerText=cart.length;
+
+}
+
+function removeItem(index){
+
+cart.splice(index,1);
+
+localStorage.setItem("cart",JSON.stringify(cart));
+
+displayCart();
+
+}
+
+function clearCart(){
+
+cart=[];
+
+localStorage.setItem("cart",JSON.stringify(cart));
+
+displayCart();
+
+}
+
+function checkout(){
+
+if(cart.length===0){
+
+alert("Your cart is empty");
+
+}else{
+
+alert("Checkout successful!");
+
+clearCart();
+
+}
+
+}
+
+displayCart();
+
+</script>
+
+</body>
+
+</html>

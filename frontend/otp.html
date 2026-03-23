@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>OTP Verification</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<section class="welcome-container">
+
+<div class="welcome-card">
+
+<h2>Verify OTP</h2>
+
+<p>Enter the OTP sent to your account</p>
+
+<input id="otp" placeholder="Enter OTP"
+style="padding:10px;width:200px;border-radius:5px;border:none">
+
+<br><br>
+
+<button onclick="verifyOTP()">Verify</button>
+
+</div>
+
+</section>
+
+<script>
+
+function verifyOTP(){
+
+const otp = document.getElementById("otp").value;
+
+fetch("http://localhost:8081/api/auth/verify", {
+method: "POST",
+headers: { "Content-Type": "application/json" },
+body: JSON.stringify({ otp: otp })
+})
+.then(res => res.text())
+.then(data => {
+
+alert(data);
+
+if(data.includes("Success")){
+
+localStorage.setItem("loggedIn", true);
+
+window.location = "cars.html";
+
+}
+
+})
+.catch(err => console.error(err));
+
+}
+
+</script>
+
+</body>
+
+</html>

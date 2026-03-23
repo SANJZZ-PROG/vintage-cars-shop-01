@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Welcome | VintageCarMarket</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<section class="welcome-container">
+
+<div class="welcome-card">
+
+<h1>VintageCarMarket</h1>
+
+<p>Luxury Vintage Car Marketplace</p>
+
+<div class="welcome-buttons">
+
+<button onclick="goToLogin()">Login</button>
+
+<button onclick="goToSignup()">Signup</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<script>
+
+function goToLogin(){
+window.location = "login.html";
+}
+
+function goToSignup(){
+window.location = "signup.html";
+}
+
+if(localStorage.getItem("loggedIn")){
+    window.location = "cars.html";
+}
+
+</script>
+
+</body>
+
+</html>

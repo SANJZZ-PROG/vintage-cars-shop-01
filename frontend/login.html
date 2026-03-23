@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Login | VintageCarMarket</title>
+<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+<header class="navbar">
+<h1>VintageCar<span>Market</span></h1>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="cars.html">Cars</a>
+<a href="cart.html">Cart</a>
+<a href="signup.html">Signup</a>
+</nav>
+</header>
+
+<section class="auth-container">
+
+<div class="auth-card">
+
+<h2>Login</h2>
+
+<input id="email" type="text" placeholder="Email">
+<input id="password" type="password" placeholder="Password">
+
+<button onclick="login()" class="auth-btn">Login</button>
+
+<p class="auth-link">
+Don't have an account?
+<a href="signup.html">Signup</a>
+</p>
+
+<!-- OTP SECTION -->
+<div id="otp-section" style="display:none; margin-top:20px;">
+
+<h3>Enter OTP</h3>
+
+<input id="otp" type="text" placeholder="Enter OTP">
+
+<button onclick="verifyOtp()" class="auth-btn">
+Verify OTP
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+// LOGIN FUNCTION
+function login(){
+
+const email = document.getElementById("email").value.trim();
+const password = document.getElementById("password").value;
+
+if(!email || !password){
+alert("Enter email & password");
+return;
+}
+
+fetch("http://localhost:8081/api/auth/login", {
+method: "POST",
+headers: { "Content-Type": "application/json" },
+body: JSON.stringify({ email: email, password: password })
+})
+
+.then(res => res.json())
+.then(data => {
+
+console.log(data);
+
+if(data.status === "otp_sent"){
+alert("OTP sent! Check backend terminal");
+document.getElementById("otp-section").style.display = "block";
+} else {
+alert("Invalid credentials");
+}
+
+})
+.catch(err => {
+console.error(err);
+alert("Server error");
+});
+
+}
+
+
+// VERIFY OTP
+function verifyOtp(){
+
+const otp = document.getElementById("otp").value.trim();
+const email = document.getElementById("email").value.trim().toLowerCase();
+
+if(!otp){
+alert("Enter OTP");
+return;
+}
+
+fetch("http://localhost:8081/api/auth/verify", {
+method: "POST",
+headers: { "Content-Type": "application/json" },
+body: JSON.stringify({ email: email, otp: otp })
+})
+
+.then(res => res.json())
+.then(data => {
+
+console.log(data);
+
+if(data.status === "success"){
+alert("Login successful 🎉");
+localStorage.setItem("loggedIn", "true");
+window.location.href = "cars.html";
+} else {
+alert("Invalid OTP");
+}
+
+})
+.catch(err => {
+console.error(err);
+alert("OTP verification error");
+});
+
+}
+
+</script>
+
+</body>
+</html>

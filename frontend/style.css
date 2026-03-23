@@ -1,0 +1,523 @@
+/* GLOBAL */
+
+body{
+font-family: Arial, sans-serif;
+margin:0;
+background:#f4f4f4;
+color:#333;
+}
+
+
+/* NAVBAR */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 40px;
+background:#111;
+color:white;
+}
+
+.navbar h1{
+margin:0;
+}
+
+.navbar span{
+color:#f5c542;
+}
+
+nav a{
+margin-left:20px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+}
+
+nav a:hover{
+color:#f5c542;
+}
+
+
+/* HERO SECTION */
+
+.hero{
+text-align:center;
+padding:80px 20px;
+background:linear-gradient(to right,#1f1f1f,#3a3a3a);
+color:white;
+}
+
+.hero h2{
+font-size:40px;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:18px;
+}
+
+
+/* SECTION TITLE */
+
+.section-title{
+text-align:center;
+margin-top:40px;
+font-size:30px;
+}
+
+
+/* SEARCH BAR */
+
+.search-container{
+text-align:center;
+margin-top:20px;
+}
+
+#search{
+padding:10px;
+width:300px;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+
+/* CAR GRID */
+
+.car-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+padding:40px;
+}
+
+
+/* CAR CARD */
+
+.car-card{
+background:white;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+overflow:hidden;
+transition:0.3s;
+}
+
+.car-card:hover{
+transform:translateY(-5px);
+}
+
+.car-card img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+
+/* CAR DETAILS */
+
+.car-info{
+padding:15px;
+}
+
+.car-info h3{
+margin:0;
+}
+
+.car-info p{
+margin:6px 0;
+}
+
+
+/* BUTTON */
+
+button{
+background:#111;
+color:white;
+border:none;
+padding:10px 15px;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#f5c542;
+color:black;
+}
+
+
+/* CART PAGE */
+
+.cart-container{
+padding:40px;
+}
+
+.cart-item{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:white;
+padding:15px;
+margin-bottom:15px;
+border-radius:6px;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+
+/* TOTAL */
+
+.total{
+text-align:right;
+font-size:20px;
+margin-top:20px;
+}
+
+/* CART PAGE */
+
+.cart-container{
+padding:80px;
+text-align:center;
+background:#0f172a;
+min-height:100vh;
+color:white;
+}
+
+.cart-container h2{
+font-size:38px;
+margin-bottom:40px;
+}
+
+.cart-card{
+
+display:flex;
+align-items:center;
+justify-content:center;
+gap:30px;
+
+background:#1e293b;
+padding:20px;
+
+margin:20px auto;
+max-width:700px;
+
+border-radius:10px;
+
+}
+
+.cart-card img{
+width:150px;
+border-radius:8px;
+}
+
+.cart-card button{
+
+margin-top:10px;
+
+background:#ef4444;
+border:none;
+
+padding:8px 14px;
+border-radius:6px;
+
+color:white;
+cursor:pointer;
+
+}
+
+.cart-buttons{
+margin-top:40px;
+}
+
+.checkout-btn{
+
+background:#22c55e;
+border:none;
+
+padding:12px 30px;
+
+border-radius:8px;
+
+color:white;
+font-size:16px;
+cursor:pointer;
+
+margin-right:20px;
+
+}
+
+.clear-btn{
+
+background:#f59e0b;
+
+border:none;
+
+padding:12px 30px;
+
+border-radius:8px;
+
+color:white;
+font-size:16px;
+cursor:pointer;
+
+}
+
+/* AUTH PAGES */
+
+.auth-container{
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+height:80vh;
+
+}
+
+.auth-card{
+
+background:#1f2937;
+
+padding:40px;
+
+border-radius:10px;
+
+width:350px;
+
+text-align:center;
+
+box-shadow:0 5px 15px rgba(0,0,0,0.4);
+
+}
+
+.auth-card{
+
+background:#1f2937;
+
+padding:40px;
+
+border-radius:10px;
+
+width:350px;
+
+text-align:center;
+
+box-shadow:0 5px 15px rgba(0,0,0,0.4);
+
+}
+
+.auth-card h2{
+
+margin-bottom:25px;
+
+color:#fbbf24;
+
+}
+
+.auth-link{
+
+margin-top:15px;
+
+color:#e5e7eb;
+
+}
+
+.auth-link a{
+
+color:#60a5fa;
+
+text-decoration:none;
+
+font-weight:bold;
+
+}
+
+.auth-container{
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+height:80vh;
+
+}
+
+.auth-card{
+
+background:#1f2937;
+
+padding:40px;
+
+border-radius:12px;
+
+width:360px;
+
+text-align:center;
+
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
+
+}
+
+.auth-card h2{
+
+color:#fbbf24;
+
+margin-bottom:25px;
+
+font-size:28px;
+
+}
+
+.auth-card input{
+
+width:100%;
+
+padding:12px;
+
+margin-bottom:15px;
+
+border:none;
+
+border-radius:6px;
+
+font-size:15px;
+
+}
+
+.auth-card button{
+
+width:100%;
+
+padding:12px;
+
+background:#2563eb;
+
+border:none;
+
+border-radius:6px;
+
+color:white;
+
+font-size:16px;
+
+cursor:pointer;
+
+}
+
+.auth-card button:hover{
+
+background:#1d4ed8;
+
+}
+
+.auth-link{
+
+margin-top:15px;
+
+color:#e5e7eb;
+
+}
+
+.auth-link a{
+
+color:#60a5fa;
+
+text-decoration:none;
+
+}
+
+.car-card{
+cursor:pointer;
+}
+
+/* WELCOME PAGE */
+
+.welcome-container{
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+height:100vh;
+
+background:#0f172a;
+
+}
+
+.welcome-card{
+
+text-align:center;
+
+background:#1e293b;
+
+padding:60px;
+
+border-radius:12px;
+
+box-shadow:0 10px 30px rgba(0,0,0,0.5);
+
+}
+
+.welcome-card h1{
+
+color:#fbbf24;
+
+font-size:40px;
+
+margin-bottom:10px;
+
+}
+
+.welcome-card p{
+
+color:#e5e7eb;
+
+margin-bottom:30px;
+
+}
+
+.welcome-buttons button{
+
+padding:12px 25px;
+
+margin:10px;
+
+border:none;
+
+border-radius:6px;
+
+font-size:16px;
+
+cursor:pointer;
+
+}
+
+.welcome-buttons button:first-child{
+background:#2563eb;
+color:white;
+}
+
+.welcome-buttons button:last-child{
+background:#10b981;
+color:white;
+}
+
+#otp-section input{
+margin-top:10px;
+}
+
+.auth-container * {
+    pointer-events: auto;
+}
+
+.auth-card {
+    position: relative;
+    z-index: 1;
+}
+
+.auth-btn {
+    background: #c6a15b;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}

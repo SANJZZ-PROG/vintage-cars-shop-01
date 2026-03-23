@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Your Cart</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+<h1>VintageCar<span>Market</span></h1>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="cars.html">Cars</a>
+<a href="cart.html">Cart</a>
+</nav>
+</header>
+
+<h2 class="section-title">Your Cart</h2>
+
+<div id="cart-items" class="car-grid"></div>
+
+<div style="text-align:center; margin-top:30px;">
+<button onclick="clearCart()">Clear Cart</button>
+<button onclick="checkout()">Proceed to Payment</button>
+</div>
+
+<script>
+
+// LOAD CART ITEMS
+function loadCart() {
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const container = document.getElementById("cart-items");
+    container.innerHTML = "";
+
+    if (cart.length === 0) {
+        container.innerHTML = "<p style='text-align:center;'>Your cart is empty</p>";
+        return;
+    }
+
+    cart.forEach((item, index) => {
+
+        const card = document.createElement("div");
+        card.className = "car-card";
+
+        card.innerHTML = `
+            <img src="images/${item.image}">
+            <div class="car-info">
+                <h3>${item.name}</h3>
+                <p>${item.brand}</p>
+                <p>$${item.price}</p>
+                <button onclick="removeItem(${index})">Remove</button>
+            </div>
+        `;
+
+        container.appendChild(card);
+    });
+}
+
+
+// REMOVE ITEM
+function removeItem(index) {
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.splice(index, 1);
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    loadCart();
+}
+
+
+// CLEAR CART
+function clearCart() {
+
+    localStorage.removeItem("cart");
+
+    loadCart();
+}
+
+
+// CHECKOUT
+function checkout() {
+
+    alert("Payment Successful! 🎉");
+
+    localStorage.removeItem("cart");
+
+    loadCart();
+}
+
+
+// AUTO LOAD
+window.onload = loadCart;
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Car Details</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+<h1>VintageCar<span>Market</span></h1>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="cars.html">Cars</a>
+<a href="cart.html">Cart</a>
+</nav>
+
+</header>
+
+<section style="text-align:center; padding:50px;">
+
+<img id="car-image" width="500">
+
+<h2 id="car-name"></h2>
+
+<p id="car-brand"></p>
+
+<p id="car-mileage"></p>
+
+<h3 id="car-price"></h3>
+
+<button onclick="addToCart()">Add to Cart</button>
+
+</section>
+
+
+<script>
+
+let car = JSON.parse(localStorage.getItem("selectedCar"));
+
+// DISPLAY DATA
+document.getElementById("car-image").src = "images/" + car.image;
+document.getElementById("car-name").innerText = car.name;
+document.getElementById("car-brand").innerText = "Brand: " + car.brand;
+document.getElementById("car-price").innerText = "$" + car.price;
+
+// FAKE EXTRA INFO (for demo)
+document.getElementById("car-mileage").innerText =
+"Mileage: " + (10 + Math.floor(Math.random()*10)) + " km/l";
+
+
+// ADD TO CART
+function addToCart(){
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+cart.push(car);
+
+localStorage.setItem("cart", JSON.stringify(cart));
+
+alert("Added to cart!");
+
+}
+
+</script>
+
+</body>
+</html>

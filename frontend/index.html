@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Vintage Car Marketplace</title>
+
+<link rel="stylesheet" href="style.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+
+<h1>VintageCar<span>Market</span></h1>
+
+<nav>
+
+<a href="index.html">Home</a>
+<a href="cars.html">Cars</a>
+<a href="cart.html">Cart</a>
+<a href="login.html">Login</a>
+<a href="signup.html">Signup</a>
+
+</nav>
+
+</header>
+
+
+
+<section class="hero">
+
+<h2>Classic Vintage Automobiles</h2>
+
+<p>Discover legendary cars from the golden era</p>
+
+<a href="cars.html">
+<button class="explore-btn">Explore Cars</button>
+</a>
+
+</section>
+
+
+
+<section>
+
+<h2 class="section-title">Featured Cars</h2>
+
+<div class="car-grid">
+
+
+<!-- MUSTANG -->
+<div class="car-card" onclick='openCarDetail("1967 Mustang","Ford",120000,"mustang.jpg")'>
+
+<img src="images/mustang.jpg" alt="1967 Mustang">
+
+<div class="car-info">
+
+<h3>1967 Mustang</h3>
+
+<p>Brand: Ford</p>
+
+<p class="price">$120,000</p>
+
+</div>
+
+</div>
+
+
+<!-- CAMARO -->
+<div class="car-card" onclick='openCarDetail("1969 Camaro","Chevrolet",110000,"camaro.jpg")'>
+
+<img src="images/camaro.jpg" alt="1969 Camaro">
+
+<div class="car-info">
+
+<h3>1969 Camaro</h3>
+
+<p>Brand: Chevrolet</p>
+
+<p class="price">$110,000</p>
+
+</div>
+
+</div>
+
+
+<!-- CORVETTE -->
+<div class="car-card" onclick='openCarDetail("1963 Corvette","Chevrolet",150000,"corvette.jpg")'>
+
+<img src="images/corvette.jpg" alt="1963 Corvette">
+
+<div class="car-info">
+
+<h3>1963 Corvette</h3>
+
+<p>Brand: Chevrolet</p>
+
+<p class="price">$150,000</p>
+
+</div>
+
+</div>
+
+
+<!-- BEL AIR -->
+<div class="car-card" onclick='openCarDetail("1957 Bel Air","Chevrolet",95000,"belair.jpg")'>
+
+<img src="images/belair.jpg" alt="1957 Bel Air">
+
+<div class="car-info">
+
+<h3>1957 Bel Air</h3>
+
+<p>Brand: Chevrolet</p>
+
+<p class="price">$95,000</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<footer>
+
+<p>© 2026 VintageCarMarket | Luxury Vintage Marketplace</p>
+
+</footer>
+
+
+
+<!-- 🔥 ADD THIS SCRIPT (IMPORTANT) -->
+<script>
+
+function openCarDetail(name, brand, price, image){
+
+localStorage.setItem("selectedCar", JSON.stringify({
+name:name,
+brand:brand,
+price:price,
+image:image
+}));
+
+window.location = "car-detail.html";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
