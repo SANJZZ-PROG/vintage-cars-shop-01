@@ -2,6 +2,8 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      java: corretto17   # ✅ ADD THIS
     commands:
       - echo "Installing Maven"
       - yum install -y maven
@@ -14,4 +16,4 @@ phases:
 
 artifacts:
   files:
-    - backend/target/*.jar   ✅ IMPORTANT FIX
+    - backend/target/*.jar
