@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing dependencies
+
+  build:
+    commands:
+      - echo Building project
+      - mvn clean package
+
+  post_build:
+    commands:
+      - echo Deploying to EC2
+      - scp -o StrictHostKeyChecking=no -i vintage-key.pem target/vintagecars-1.0.jar ec2-user@13.200.63.1:/home/ec2-user/backend/
+      - ssh -o StrictHostKeyChecking=no -i vintage-key.pem ec2-user@13.200.63.1 "pkill -f vintagecars || true"
+      - ssh -o StrictHostKeyChecking=no -i vintage-key.pem ec2-user@13.200.63.1 "nohup java -jar /home/ec2-user/backend/vintagecars-1.0.jar > /home/ec2-user/backend/app.log 2>&1 &"
