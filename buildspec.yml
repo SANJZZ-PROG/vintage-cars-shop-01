@@ -2,11 +2,13 @@ version: 0.2
 
 phases:
   install:
-    commands:
-      - echo Installing dependencies
-      - yum install -y openssh-clients
-      - chmod 400 vintage-key.pem
-
+  commands:
+    - echo "Creating PEM file"
+    - echo "$PEM_KEY" | base64 --decode > vintage-key.pem
+    - ls -l
+    - chmod 400 vintage-key.pem
+    - yum install -y openssh-clients
+  
   build:
     commands:
       - cd backend
