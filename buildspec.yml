@@ -3,8 +3,11 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "Creating PEM file"
+      - echo "Checking PEM_KEY..."
+      - echo "$PEM_KEY" | head -n 5
       - echo "$PEM_KEY" > vintage-key.pem
+      - ls -l
+      - cat vintage-key.pem | head -n 5
       - chmod 400 vintage-key.pem
       - yum install -y openssh-clients
 
